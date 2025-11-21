@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Register — Supper Coffee</title>
+  <style>
+    body { margin:0; font-family: Arial, sans-serif; background: linear-gradient(135deg,#044419 0%,#896fcb 100%); min-height:100vh; display:flex; align-items:center; justify-content:center; }
+    .card{ width:360px; background:white; padding:20px; border-radius:12px; box-shadow:0 10px 30px rgba(0,0,0,0.12); }
+    .card h1{ margin:0 0 12px; font-size:20px; }
+    .card label{ display:block; margin-top:8px; font-size:14px; }
+    .card input{ width:100%; padding:8px; margin-top:6px; border-radius:6px; border:1px solid #ccc; box-sizing:border-box; }
+    .btn{ margin-top:16px; width:100%; padding:10px; border-radius:8px; border:none; cursor:pointer; background:#0d6efd; color:white; font-weight:600; }
+    .muted{ font-size:13px; margin-top:10px; color:#555; text-align:center; }
+    .msg { margin-top:10px; min-height:1.25rem; font-size:14px; }
+    .msg.error { color:#b00020; }
+    .msg.success { color:#006400; }
+  </style>
+</head>
+<body>
+  <div class="card" role="main" aria-labelledby="registerTitle">
+    <h1 id="registerTitle">Create account</h1>
+
+    <label for="name">Full name</label>
+    <input id="name" type="text" placeholder="John Doe" autocomplete="name"/>
+
+    <label for="email">Email</label>
+    <input id="email" type="email" placeholder="you@example.com" autocomplete="email"/>
+
+    <label for="phone">Phone</label>
+    <input id="phone" type="tel" placeholder="1234567890" autocomplete="tel" inputmode="tel"/>
+
+    <label for="password">Password</label>
+    <input id="password" type="password" placeholder="At least 4 chars" autocomplete="new-password"/>
+    <div class="small" style="font-size:12px;color:#666;margin-top:6px;">Use at least 4 characters. For production use stronger passwords.</div>
+
+    <button class="btn" id="registerBtn" type="button">Register</button>
+    <div id="status" class="msg" aria-live="polite" role="status"></div>
+
+    <div class="muted">Already have an account? <a class="link" href="contact.html">Login</a></div>
+  </div>
+
+<script>
+  
+  function bufferToHex(buffer) {
+    const bytes = new Uint8Array(buffer);
+    return Array.from(bytes).map(b => b.toString(16).padStart(2,'0')).join('');
+  }
+  async function sha256Hex(str) {
+    const enc = new TextEncoder();
+    const data = enc.encode(str);
+    const hashBuffer = await crypto.subtle.digest('SHA-256', data);
+    return bufferToHex(hashBuffer);
+  }
+  function generateSaltHex(bytes = 16) {
+    const arr = new Uint8Array(bytes);
+    crypto.getRandomValues(arr);
+    return Array.from(arr).map(b => b.toString(16).padStart(2,'0')).join('');
+  }
+  function normalizePhone(s) { return (s||'').replace(/\D/g,''); }
+  function setStatus(text, type='') {
+    const el = document.getElementById('status');
+    el.textContent = text;
+    el.className = 'msg' + (type ? ' ' + type : '');
+  }
+
+  document.getElementById('registerBtn').addEventListener('click', async function () {
+    const btn = this;
+    setStatus('', '');
+    try {
+      btn.disabled = true;
+      btn.textContent = 'Registering...';
+
+      const name = document.getElementById('name').value.trim();
+      const email = document.getElementById('email').value.trim().toLowerCase();
+      const phoneRaw = document.getElementById('phone').value.trim();
+      const phone = normalizePhone(phoneRaw);
+      const password = document.getElementById('password').value;
+
+      if (!name || !email || !phone || !password) { setStatus('Please fill all fields.', 'error'); return; }
+      const emailCheck = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      if (!emailCheck.test(email)) { setStatus('Enter a valid email address.', 'error'); return; }
+      if (phone.length < 10) { setStatus('Phone must be at least 10 digits.', 'error'); return; }
+      if (password.length < 4) { setStatus('Password must be at least 4 characters.', 'error'); return; }
+
+      const raw = localStorage.getItem('users');
+      const users = raw ? JSON.parse(raw) : {};
+      if (users[email]) { setStatus('An account with this email already exists. Please login or use another email.', 'error'); return; }
+
+      const salt = generateSaltHex(16);
+      const passwordHash = await sha256Hex(salt + password);
+
+      users[email] = { name, phone, salt, passwordHash, createdAt: new Date().toISOString() };
+      localStorage.setItem('users', JSON.stringify(users));
+
+      setStatus('Registered successfully! Redirecting to login...', 'success');
+      setTimeout(() => window.location.href = 'login.html', 700);
+    } catch (err) {
+      console.error(err);
+      setStatus('An unexpected error occurred. See console.', 'error');
+    } finally {
+      btn.disabled = false;
+      btn.textContent = 'Register';
+    }
+  });
+</script>
+</body>
+</html>

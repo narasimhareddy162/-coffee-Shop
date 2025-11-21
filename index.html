@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Supper coffei</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        header{
+            height: 120px;
+            width: 100%;
+            /* border: 1px solid black; */
+            display: flex;
+            position: sticky;
+        }
+        .logo{
+           height: 120px;
+            width: 15%;
+            /* border: 1px solid black;  */
+        }
+        .logo img{
+            height: 120px;
+            width: 100%;
+        }
+        .nave{
+            height: 120px;
+            width: 85%;
+            /* border: 1px solid black; */
+            display: flex;
+            justify-content: space-around;
+            align-items:center ;
+          background: linear-gradient(135deg,#e2a768 0%,#901212 100%); 
+        }
+        .nave button{
+            width: 100px;   
+            height: 48px;
+            background-color: blue; 
+            border-radius: 10px;        
+        }
+        .nave a{
+            color: black;
+            margin-left: 10px;
+            font-size: x-large;
+        }
+        .a{
+            position: relative;
+        }
+        .a a{
+            display: flex;
+            text-decoration: none;
+        }
+        .a img{
+            height: 700px;
+            width: 100%;
+            position: relative;
+        }
+        .about{
+            margin-top: 100px;
+        }
+        .about h1{
+            font-size: xx-large;
+            text-align: center;
+        }
+        .about .aboutbody{
+            border: 1px soid black;
+            border-radius: 10px;
+            background: linear-gradient(135deg,#c5390e 0%,#af0d84 100%); 
+        }
+        .carousel-inner,
+         .carousel-item {
+        height: 720px; ;
+       }
+       .carousel-item img {
+         width: 100%;
+       height: 100%;
+        object-fit: cover; 
+       display: block;    
+      }
+      .faq .faqhead h1{
+        font-size: xx-large;
+        margin-top: 100px;
+        text-align: center;
+      }
+      footer{
+        height: 60px;
+        background: linear-gradient(135deg,#085b79 0%,#7d051d 100%); 
+      }
+     footer .foot h3{
+       margin-left: 85px;
+       margin-top: 15px;
+     }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="logo">
+         <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSuiD-s1af07pMaxJiuoKSEHczmG5uD_spNtV1FmhSy4G1bhEy406UIEDlFkOidzujFPD8&usqp=CAU" alt="">
+        </div>
+        <div class="nave">
+            <div class="a"><a href="index.html">Home</a></div>
+            <div class="a"><a href="about.html">About</a></div>
+            <div class="a"><a href="menu.html">Menu</a></div>
+            <div class="a"><a href="offers.html">Offers</a></div>
+<a id="signinBtn" href="contact.html" class="btn btn-primary" style="height:48px; padding-top:10px;">Sign in</a>
+        <a id="logoutBtn" href="#" class="btn btn-danger" style="display:none; height:48px; padding-top:10px;">Logout</a>
+        <span id="userGreeting" style="color:white; font-size:20px; margin-left:10px; display:none;"></span>        </div>
+    </header>
+    <section>
+        <div class="a">
+    
+<div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel" data-bs-interval="3000">
+  <div class="carousel-inner">
+    <div class="carousel-item active">
+      <img src="https://w0.peakpx.com/wallpaper/117/508/HD-wallpaper-coffee-good-morning-cup-of-coffee-beans-coffee-beans-still-life-graphy-cup-reflection.jpg" class="d-block w-100" alt="...">
+    </div>
+    <div class="carousel-item">
+      <img src="https://cdn.shopify.com/s/files/1/0656/5412/8891/files/T2_13c5f4aa-6ef6-49ca-ad91-5a3d1e5afb2d.png?v=1690801779" class="d-block w-100" alt="...">
+    </div>
+    <div class="carousel-item">
+      <img src="https://b.zmtcdn.com/data/pictures/7/20549267/b585de5a2ccc7bfa7cab5e3ab78bbe38.jpg?fit=around|960:500&crop=960:500;," class="d-block w-100" alt="...">
+    </div>
+  </div>
+  </div>
+</div>
+    
+        <div class="about">
+             <h1>About Coca Coffee Shop</h1>
+             <div class="aboutbody">
+             <ul>
+        <p>Welcome to Supper Coffee, a warm and welcoming coffee shop created for everyone who believes that a good day always starts with a great cup of coffee. At Supper Coffee, we blend passion, flavor, and comfort to offer you an unforgettable coffee experience.</p>
+        <li>Our Story</li>
+        <p>Supper Coffee was founded with one simple idea — to bring people together through the love of coffee. We started as a small neighborhood café with a big dream: to serve freshly brewed, high-quality coffee in a cozy and friendly environment. Over time, we’ve become a favorite destination for students, professionals, and families who love to relax, chat, or work while enjoying their favorite drink.</p>
+        <li>What Makes Us Special</li>
+        <p>At Supper Coffee, we take pride in every detail. Our premium coffee beans are handpicked from trusted farmers who share our commitment to quality and sustainability. Each bean is roasted to perfection, ensuring a smooth and rich taste in every sip. Our skilled baristas carefully craft every cup, from classic espresso to creamy lattes, refreshing cold brews, and our signature special drinks that you won’t find anywhere else.</p>
+        <p>We also care about our community and the environment. That’s why we focus on eco-friendly practices, such as using biodegradable cups and supporting local suppliers.</p>
+        <li>More Than Just Coffee</li>
+        <p>We believe that coffee tastes best when paired with something delicious. That’s why we offer a variety of freshly baked pastries, sandwiches, and desserts, all made daily in our kitchen. Whether you crave a chocolate muffin, a crispy croissant, or a healthy smoothie, there’s something here for everyone.</p>
+        <li>Our Space</li>
+        <p>Supper Coffee is more than just a café — it’s your second home. Our space is designed with soft lighting, comfortable seating, and a calm atmosphere that makes it perfect for reading, studying, or simply relaxing with friends. Free Wi-Fi and soothing background music make it an ideal place for students and professionals alike.</p>
+        <li>Our Promise</li>
+        <p>We believe in three things — quality, care, and connection. Every customer who walks through our doors is treated like family. We promise to serve you not just coffee, but warmth, happiness, and unforgettable memories.</p>
+        <li>Mission & Vision</li>
+        <p>Our Mission: To serve high-quality coffee and fresh food that inspires comfort, creativity, and connection among our customers.</p>
+        <p>Our Vision: To become the most loved neighborhood coffee shop known for our unique flavors, warm hospitality, and positive community impact.</p>
+        <li>Come Experience the Difference</li>
+        <p>So, whether you’re looking for your morning energy boost, an evening hangout spot, or a peaceful corner to work — Supper Coffee is here to serve you.
+Step in, take a sip, and feel the magic of coffee come alive.</p>
+        <p>Because at Supper Coffee, every cup tells a story — and that story begins with you.</p>
+    </ul>
+         </div>
+        </div>
+        <div class="faq">
+            <div class="faqhead"><h1>FAQ'S</h1></div>
+            <div class="faqbody">
+    <div class="accordion-item">
+    <h2 class="accordion-header" id="flush-headingone">
+      <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseone" aria-expanded="false" aria-controls="flush-collapseone">
+        <h5>Which is best coffee drink in winter</h5>
+      </button>
+    </h2>
+    <div id="flush-collapseone" class="accordion-collapse collapse" aria-labelledby="flush-headingone" data-bs-parent="#accordionFlushExample">
+      <div class="accordion-body">
+        <div class="ca">
+            <h3>1. Caramel Macchiato (₹160)</h3>
+            <h4>Warm, sweet, and comforting — perfect for cold weather.</h4><br>
+            <h3>2. Mocha Delight (₹150)</h3>
+            <h4>Chocolate + coffee gives a cozy, winter-friendly flavor.</h4><br>
+            <h3>3. Cappuccino (₹120)</h3>
+            <h4>Creamy, foamy, and warming — a classic winter favorite.</h4>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="accordion-item">
+    <h2 class="accordion-header" id="flush-headingTwo">
+      <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapsetwo" aria-expanded="false" aria-controls="flush-collapsetwo">
+        <h5>Which is best coffee drink in summer</h5>
+      </button>
+    </h2>
+    <div id="flush-collapsetwo" class="accordion-collapse collapse" aria-labelledby="flush-headingtwo" data-bs-parent="#accordionFlushExample">
+      <div class="accordion-body">
+        <div class="ca">
+            <h3>1. Vanilla Frappe (₹180)</h3>
+            <h4>Cold, creamy, and refreshing — perfect for hot summer days.</h4><br>
+            <h3>2. Cold Coffee (₹110)</h3>
+            <h4>Chilled, blended, and energizing — a classic summer favorite.</h4><br>
+            <h3>3. Iced Americano (₹100)</h3>
+            <h4>Light, bold, and super refreshing without being heavy.</h4>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="accordion-item">
+    <h2 class="accordion-header" id="flush-headingThree">
+      <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseThree" aria-expanded="false" aria-controls="flush-collapseThree">
+       <h5>Which is best coffee drink in raining time</h5>
+      </button>
+    </h2>
+    <div id="flush-collapseThree" class="accordion-collapse collapse" aria-labelledby="flush-headingThree" data-bs-parent="#accordionFlushExample">
+      <div class="accordion-body">
+        <div class="ca">
+            <h3>Mocha Delight (₹150)</h3>
+            <h4>Because rain + warm chocolatey coffee = perfect cozy mood.
+                It’s rich, warm, and soothing — ideal for enjoying while listening to the rain.</h4><br>
+            <h3>Other great rainy-day options:</h3>
+            <h4>Filter Coffee (₹90) – strong aroma + perfect monsoon vibe. <br>
+
+                 Cappuccino (₹120) – warm, creamy, and comforting.</h4>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="accordion-item">
+    <h2 class="accordion-header" id="flush-headingfour">
+      <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapsefour" aria-expanded="false" aria-controls="flush-collapsefour">
+       <h5> Which is best coffee drink time of coal and cough</h5>
+      </button>
+    </h2>
+    <div id="flush-collapsefour" class="accordion-collapse collapse" aria-labelledby="flush-headingfour" data-bs-parent="#accordionFlushExample">
+      <div class="accordion-body">
+        <div class="ca">
+            <h3>1. Filter Coffee (₹90)</h3>
+            <h4>Warm, mild, and aromatic — easiest on the throat.</h4><br>
+            <h3>2. Cafe Latte (₹130)</h3>
+            <h4>More milk, less intensity — gentle and smooth when you’re not feeling well.</h4><br>
+            <h3>3. Cappuccino (₹120)</h3>
+            <h4>Warm and creamy, not too strong — comforting for a sore throat.</h4>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="accordion-item">
+    <h2 class="accordion-header" id="flush-headingfive">
+      <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapsefive" aria-expanded="false" aria-controls="flush-collapsefive">
+        <h5>Which is best coffee drink time of fever</h5>
+      </button>
+    </h2>
+    <div id="flush-collapsefive" class="accordion-collapse collapse" aria-labelledby="flush-headingfive" data-bs-parent="#accordionFlushExample">
+      <div class="accordion-body">
+        <div class="ca">
+            <h3>1. Cafe Latte (₹130)</h3>
+            <h4>Mild, mostly milk <br>
+              Gentle on the body <br>
+              Less caffeine, warm, and soothing</h4><br>
+              <h3>2. Filter Coffee (₹90)</h3>
+              <h4>Warm and comforting <br>
+                  Not too strong <br>
+                  Helps you feel relaxed during fever</h4><br>
+                  <h3>3. Cappuccino (₹120)</h3>
+                  <h4>Warm, creamy, and smooth <br>
+                      Less intense than espresso drinks</h4>
+        </div>
+      </div>
+    </div>
+  </div>
+            </div>
+        </div>
+        
+    </section>
+
+<footer>
+    <div class="container d-flex align-items-center justify-content-between">
+      <div><h2 class="h6 mb-0"><h2>Ph.no 9240679960</h2></h2></div>
+      <small><h2><span id="year"></span>@supper.coffee....</h2></small>
+    </div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+    crossorigin="anonymous"></script>
+
+  <script>
+    // Show/hide Sign in / Logout and greeting based on localStorage 'loggedInUser'
+    (function () {
+      const signinBtn = document.getElementById('signinBtn');
+      const logoutBtn = document.getElementById('logoutBtn');
+      const greeting = document.getElementById('userGreeting');
+      const loggedInEmail = localStorage.getItem('loggedInUser');
+
+      if (loggedInEmail) {
+        // hide sign in
+        if (signinBtn) signinBtn.style.display = 'none';
+
+        // show logout
+        if (logoutBtn) logoutBtn.style.display = 'inline-block';
+
+        // optionally show user's name if stored
+        try {
+          const usersRaw = localStorage.getItem('users');
+          if (usersRaw) {
+            const users = JSON.parse(usersRaw);
+            const user = users[loggedInEmail];
+            if (user && user.name) {
+              greeting.textContent = 'Hi, ' + user.name.split(' ')[0];
+              greeting.style.display = 'inline-block';
+            }
+          }
+        } catch (e) { console.error(e); }
+      } else {
+        // not logged in
+        if (logoutBtn) logoutBtn.style.display = 'none';
+        if (greeting) greeting.style.display = 'none';
+        if (signinBtn) signinBtn.style.display = 'inline-block';
+      }
+
+      // Logout action
+      if (logoutBtn) {
+        logoutBtn.addEventListener('click', (ev) => {
+          ev.preventDefault();
+          localStorage.removeItem('loggedInUser');
+          // optional: show a little feedback then reload
+          alert('Logged out');
+          location.reload();
+        });
+      }
+    })();
+
+    // footer year
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+  </body>
+</html>
